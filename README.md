@@ -21,3 +21,13 @@
  服务层
 - web  
  继承service war
+ 
+ ### SSM整合
+ 1. Spring  
+   Service
+ 2. Spring MVC  
+   表现层
+ 3. Mybatis  
+   Dao
+   
+ 

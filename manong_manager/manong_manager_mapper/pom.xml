@@ -18,5 +18,20 @@
             <artifactId>manong_manager_pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <!--mybatis-spring-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <!--druid 链接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
     </dependencies>
 </project>
