@@ -10,13 +10,19 @@
     </script>
 </head>
 <body class="easyui-layout">
-    <div data-options="region:'west',title:'West',split:true,minWidth:180" style="width:100px;">
+    <div data-options="region:'west',title:'Menu',split:true,minWidth:180" style="width:100px;">
         <ul id="tt" class="easyui-tree">
             <li>
                 <span>Goods Manange</span>
                 <ul>
                     <li data-options="attributes:{'url':'product_list'}">Goods List</li>
                     <li data-options="attributes:{'url':'product_add'}">Goods Add</li>
+                </ul>
+            </li>
+            <li>
+                <span>Category Manange</span>
+                <ul>
+                    <li data-options="attributes:{'url':'product_cat_list'}">Category List</li>
                 </ul>
             </li>
         </ul>
