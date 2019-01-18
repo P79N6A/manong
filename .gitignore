@@ -1,6 +1,7 @@
 /.idea
 /.settings
 /out
+/target
 *.iml
 .classpath
 .mymetadata
