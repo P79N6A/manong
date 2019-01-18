@@ -28,7 +28,7 @@
         </ul>
     </div>
     <div data-options="region:'center'" style="padding:5px;background:#eee;">
-        <div id="tabs" class="easyui-tabs" style="height:250px;">
+        <div id="tabs" class="easyui-tabs">
             <div title="Home" style="padding:20px;display:none;">
                 Home
             </div>

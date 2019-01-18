@@ -62,6 +62,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
         </dependency>
+        <!--servlet-api-->
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <!--tomcat中有servlet 这里定义使用自己的-->
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
