@@ -16,6 +16,7 @@
         <module>../manong_rest</module>
         <module>../manong_sso</module>
         <module>../manong_search</module>
+        <module>../manong_portal</module>
     </modules>
 
     <!--集中定义的版本号-->
@@ -38,6 +39,8 @@
         <ueditor.version>1.1.2</ueditor.version>
         <freemarker.version>2.3.28</freemarker.version>
         <servlet-api>2.5</servlet-api>
+        <pagehelper.version>4.1.1</pagehelper.version>
+        <hutool.version>4.3.1</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -171,6 +174,19 @@
                 <version>${servlet-api}</version>
             </dependency>
 
+            <!--pagehelper 分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
+            <!-- how2j中的工具jar http://how2j.cn/k/hutool/hutool-use/1935.html -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

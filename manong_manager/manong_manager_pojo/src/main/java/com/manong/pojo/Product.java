@@ -13,7 +13,7 @@ public class Product {
 
     private Long price;
 
-    private Byte status;
+    private Byte status = 1;
 
     private String description;
 

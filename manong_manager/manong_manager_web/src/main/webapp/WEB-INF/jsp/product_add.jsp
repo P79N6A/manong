@@ -22,10 +22,16 @@
 %>
     <div style="padding: 10px">
         <form id="productAddForm" method="post">
+
+            <input type="hidden" name="categoryId" />
+            <input type="hidden" name="image" />
+            <input type="hidden" name="description" />
+
+
             <table cellpadding="10px">
                 <tr>
                     <td>商品名称</td>
-                    <td> <input class="easyui-textbox" data-options="required:true" style="width:800px"></td>
+                    <td> <input class="easyui-textbox" name="name" data-options="required:true" style="width:800px"></td>
                 </tr>
                 <tr>
                     <td>商品分类</td>
@@ -48,20 +54,30 @@
                 </tr>
                 <tr>
                     <td>市场价格</td>
-                    <td><input class="easyui-numberbox" data-options="required:true,min:0,max:99999999,precision:2" style="width:800px"></td>
+                    <td><input class="easyui-numberbox" name="maketPricePreview" data-options="required:true,min:0,max:99999999,precision:2" style="width:800px"></td>
+                    <input type="hidden" name="maketPrice" />
+
                 </tr>
                 <tr>
                     <td>商品价格</td>
-                    <td><input class="easyui-numberbox" data-options="required:true,min:0,max:99999999,precision:2" style="width:800px"></td>
+                    <td><input class="easyui-numberbox" name="pricePreview" data-options="required:true,min:0,max:99999999,precision:2" style="width:800px"></td>
+                    <input type="hidden" name="price" />
                 </tr>
                 <tr>
                     <td>商品编号</td>
-                    <td> <input class="easyui-numberbox" data-options="required:true" style="width:800px"></td>
+                    <td> <input class="easyui-numberbox" name="productNumber" data-options="required:true" style="width:800px"></td>
                 </tr>
                 <tr>
                     <td>商品主图</td>
                     <td>
-                        <a id="btn" href="#" class="easyui-linkbutton" >上传图片</a>
+                        <input id="fileName" name="uploadfile" >
+                        <a id="uploadPic" href="#" class="easyui-linkbutton" >上传图片</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>主图预览</td>
+                    <td>
+                        <img src="" id="img" width="376" height="190">
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +90,7 @@
         </form>
 
         <div align="center">
-            <a id="submit" href="#" class="easyui-linkbutton" >提交</a>
+            <a id="submit" href="#" class="easyui-linkbutton" onclick="submitForm()" >提交</a>
             <a id="reset" href="#" class="easyui-linkbutton" >重置</a>
         </div>
 
@@ -88,5 +104,18 @@
 
         MANONG.init();
     })
-</script>
 
+    function submitForm() {
+        $("#productAddForm").find("input[name='description']").val( UE.getEditor('editor').getContent());
+
+        $("#productAddForm").find("input[name='price']").val(eval($("#productAddForm").find("input[name='pricePreview']").val())*100);
+        $("#productAddForm").find("input[name='maketPrice']").val(eval($("#productAddForm").find("input[name='maketPricePreview']").val())*100);
+
+        $.post("/product_save", $("#productAddForm").serialize(),function (data) {
+            if(data.status == 200){
+                $.messager.alert('提示','成功添加商品');
+            }
+        })
+    }
+
+</script>

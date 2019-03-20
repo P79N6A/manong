@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import pojo.ResponseJsonResult;
 
 import java.io.IOException;
 
@@ -15,13 +16,16 @@ public class FileController {
 
     @RequestMapping(value = "uploadfile",method = RequestMethod.POST)
     @ResponseBody
-    public String fileupload(@RequestParam MultipartFile uploadfile) throws IOException {
+    public ResponseJsonResult fileupload(@RequestParam MultipartFile uploadfile) throws IOException {
         String fileID = FastDFSClient.uploadFile(uploadfile.getInputStream(),uploadfile.getOriginalFilename());
         if(fileID != null){
             System.out.print("上传文件成功");
         }
 
-        return fileID + "---" + uploadfile.getOriginalFilename();
+        ResponseJsonResult responseJsonResult = new ResponseJsonResult();
+        responseJsonResult.setStatus(200);
+        responseJsonResult.setMsg(fileID);
+        return responseJsonResult;
     }
 
 }
