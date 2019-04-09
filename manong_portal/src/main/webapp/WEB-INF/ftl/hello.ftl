@@ -1,5 +1,5 @@
 <h1>Hello ${name}</h1>
 
-<#list ["aaa","bbb","ccc"] as x>
-    ${x}
+<#list [{"id":1},{"id":2},{"id":3}] as x>
+    ${x.id}
 </#list>

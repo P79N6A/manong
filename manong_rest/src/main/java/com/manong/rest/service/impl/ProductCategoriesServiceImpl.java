@@ -48,7 +48,7 @@ public class ProductCategoriesServiceImpl implements ProductCategoriesService {
 
         ProductCategoryExample productCategoryExample = new ProductCategoryExample();
         ProductCategoryExample.Criteria criteria = productCategoryExample.createCriteria();
-        criteria.andIdEqualTo(id);
+        criteria.andParentIdEqualTo(id);
         List<ProductCategory> productCategories = productCategoryMapper.selectByExample(productCategoryExample);
 
         for (int i = 0;i<productCategories.size();i++){
