@@ -3,7 +3,6 @@ package com.manong.portal.controller;
 import com.manong.portal.service.CategoriesService;
 import com.manong.portal.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,14 +21,24 @@ public class IndexController {
 
     @RequestMapping("/home.html")
     public String index(ModelMap modelMap){
-
         Res_Categories categories = categoriesService.getCategories();
         List<Res_Product> products = productService.getProducts();
 
         modelMap.addAttribute("categories",categories);
         modelMap.addAttribute("products",products);
 
-        return "index";
+        return "Product";
+    }
+
+    @RequestMapping("/index-back")
+    public String indexBack(ModelMap modelMap){
+        Res_Categories categories = categoriesService.getCategories();
+        List<Res_Product> products = productService.getProducts();
+
+        modelMap.addAttribute("categories",categories);
+        modelMap.addAttribute("products",products);
+
+        return "index-back";
     }
 
 
