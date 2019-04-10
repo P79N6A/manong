@@ -1,4 +1,5 @@
 pojo\Bank.class
+pojo\Res_Product.class
 pojo\ResponseJsonResult.class
 pojo\Res_Categories.class
 utils\HttpClientUtil.class

@@ -17,9 +17,12 @@ public class FileController {
     @RequestMapping(value = "uploadfile",method = RequestMethod.POST)
     @ResponseBody
     public ResponseJsonResult fileupload(@RequestParam MultipartFile uploadfile) throws IOException {
+        if(uploadfile == null){
+            return null;
+        }
         String fileID = FastDFSClient.uploadFile(uploadfile.getInputStream(),uploadfile.getOriginalFilename());
         if(fileID != null){
-            System.out.print("上传文件成功");
+            System.out.print("上传文件成功\n");
         }
 
         ResponseJsonResult responseJsonResult = new ResponseJsonResult();
@@ -27,5 +30,4 @@ public class FileController {
         responseJsonResult.setMsg(fileID);
         return responseJsonResult;
     }
-
 }
